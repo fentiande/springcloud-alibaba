@@ -5,7 +5,7 @@ spring:
     name: service-order
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql:///shop?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    url: jdbc:mysql://172.16.2.120:3306/shop?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
     username: root
     password: root
   jpa:
