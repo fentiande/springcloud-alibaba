@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1188586e-5c8a-4c6c-b369-4e7b2b2ab785" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/shop-order/src/main/java/com/chow/OrderApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-order/src/main/java/com/chow/controller/OrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-order/src/main/java/com/chow/dao/OrderDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-order/src/main/java/com/chow/service/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-order/src/main/java/com/chow/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-product/src/main/java/com/chow/ProductApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-product/src/main/java/com/chow/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-product/src/main/java/com/chow/dao/ProductDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-product/src/main/java/com/chow/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-product/src/main/java/com/chow/service/impl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-order/src/main/java/chow/OrderApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-order/src/main/java/chow/controller/OrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-order/src/main/java/chow/dao/OrderDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-order/src/main/java/chow/service/OrderService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-order/src/main/java/chow/service/impl/OrderServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-order/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-order/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-product/src/main/java/chow/ProductApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-product/src/main/java/chow/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-product/src/main/java/chow/dao/ProductDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-product/src/main/java/chow/service/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-product/src/main/java/chow/service/impl/ProductServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-product/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-product/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-user/src/main/resources/application.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="23UuCRWAIhpCJ3dncZ2cQm190Yx" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1188586e-5c8a-4c6c-b369-4e7b2b2ab785" name="Changes" comment="" />
+      <created>1641800859417</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1641800859417</updated>
+    </task>
+    <servers />
+  </component>
+</project>
