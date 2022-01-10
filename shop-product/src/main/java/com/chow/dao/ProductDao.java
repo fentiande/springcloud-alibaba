@@ -1,4 +1,4 @@
-package chow.dao;
+package com.chow.dao;
 
 import com.chow.domain.Product;
 import com.chow.domain.User;

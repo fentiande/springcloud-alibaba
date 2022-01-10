@@ -1,6 +1,6 @@
-package chow.controller;
+package com.chow.controller;
 
-import chow.service.OrderService;
+import com.chow.service.OrderService;
 import com.chow.domain.Order;
 import com.chow.domain.Product;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package chow.service;
+package com.chow.service;
 
 import com.chow.domain.Product;
 

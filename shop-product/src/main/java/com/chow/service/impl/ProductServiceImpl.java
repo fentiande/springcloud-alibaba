@@ -1,7 +1,7 @@
-package chow.service.impl;
+package com.chow.service.impl;
 
-import chow.dao.ProductDao;
-import chow.service.ProductService;
+import com.chow.dao.ProductDao;
+import com.chow.service.ProductService;
 import com.chow.domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

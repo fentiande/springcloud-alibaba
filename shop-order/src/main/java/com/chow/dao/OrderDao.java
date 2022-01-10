@@ -1,4 +1,4 @@
-package chow.dao;
+package com.chow.dao;
 
 import com.chow.domain.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
