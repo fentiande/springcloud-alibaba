@@ -5,10 +5,14 @@ import com.chow.domain.Order;
 import com.chow.domain.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 @RestController
 @Slf4j
@@ -20,9 +24,16 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
     @GetMapping("/order/prod/{pid}")
     public Order order(@PathVariable("pid") Integer pid) {
-        Product product = restTemplate.getForObject("http://localhost:8081/product/" + pid, Product.class);
+
+        List<ServiceInstance> instances = discoveryClient.getInstances("service-product");
+        ServiceInstance instance = instances.get(0);
+
+        Product product = restTemplate.getForObject("http://" + instance.getHost() + ":" + instance.getPort() +  "/product/" + pid, Product.class);
 
         Order order = new Order();
         order.setUid(1);
