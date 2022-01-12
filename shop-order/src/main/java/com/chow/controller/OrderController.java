@@ -20,59 +20,22 @@ import java.util.List;
 public class OrderController {
 
     @Autowired
-    private RestTemplate restTemplate;
-
-    @Autowired
     private OrderService orderService;
 
     @Autowired
     private ProductService productService;
 
-    @Autowired
-    private DiscoveryClient discoveryClient;
-
-    @GetMapping("/order/prod/{pid}/test1")
-    public Order orderTest1(@PathVariable("pid") Integer pid) {
-
-        List<ServiceInstance> instances = discoveryClient.getInstances("service-product");
-        ServiceInstance instance = instances.get(0);
-
-        Product product = restTemplate.getForObject("http://" + instance.getHost() + ":" + instance.getPort() +  "/product/" + pid, Product.class);
-
-        Order order = new Order();
-        order.setUid(1);
-        order.setUsername("测试用户");
-        order.setPid(product.getPid());
-        order.setPname(product.getPname());
-        order.setPprice(product.getPprice());
-        order.setNumber(1);
-
-        orderService.save(order);
-
-        return order;
-    }
-
-    @GetMapping("/order/prod/{pid}/test2")
-    public Order orderTest2(@PathVariable("pid") Integer pid) {
-        Product product = restTemplate.getForObject("http://service-product/product/" + pid, Product.class);
-
-        Order order = new Order();
-        order.setUid(1);
-        order.setUsername("测试用户");
-        order.setPid(product.getPid());
-        order.setPname(product.getPname());
-        order.setPprice(product.getPprice());
-        order.setNumber(1);
-
-        orderService.save(order);
-
-        return order;
-    }
-
     @GetMapping("/order/prod/{pid}")
     public Order order(@PathVariable("pid") Integer pid) {
         Product product = productService.findById(pid);
 
+        try {
+            Thread.sleep(2000l);
+        } catch (InterruptedException e) {
+            log.error("休息中，报错了");
+        }
+        log.info("休息两秒");
+
         Order order = new Order();
         order.setUid(1);
         order.setUsername("测试用户");
@@ -81,8 +44,18 @@ public class OrderController {
         order.setPprice(product.getPprice());
         order.setNumber(1);
 
-        orderService.save(order);
+//        orderService.save(order);
 
         return order;
+    }
+
+    @GetMapping("/order/message1")
+    public String message1() {
+        return "message1";
+    }
+
+    @GetMapping("/order/message2")
+    public String message2() {
+        return "message2";
     }
 }
