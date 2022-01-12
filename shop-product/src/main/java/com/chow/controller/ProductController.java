@@ -18,6 +18,7 @@ public class ProductController {
     @GetMapping("/product/{pid}")
     public Product product(@PathVariable("pid") Integer pid) {
         Product product = productService.findByPid(pid);
+        log.info("product:" + pid);
         return product;
     }
 }
