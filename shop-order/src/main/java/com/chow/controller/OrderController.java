@@ -51,11 +51,13 @@ public class OrderController {
 
     @GetMapping("/order/message1")
     public String message1() {
+        orderService.message();
         return "message1";
     }
 
     @GetMapping("/order/message2")
     public String message2() {
+        orderService.message();
         return "message2";
     }
 }

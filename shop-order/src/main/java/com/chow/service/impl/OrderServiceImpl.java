@@ -1,6 +1,7 @@
 package com.chow.service.impl;
 
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.chow.dao.OrderDao;
 import com.chow.service.OrderService;
 import com.chow.domain.Order;
@@ -16,5 +17,10 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void save(Order order) {
         orderDao.save(order);
+    }
+
+    @SentinelResource("message")
+    public void message() {
+        System.out.println("mesage");
     }
 }
