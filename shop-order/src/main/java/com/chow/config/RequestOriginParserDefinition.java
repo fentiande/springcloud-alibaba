@@ -13,9 +13,9 @@ public class RequestOriginParserDefinition implements RequestOriginParser {
     @Override
     public String parseOrigin(HttpServletRequest request) {
         String serviceName = request.getParameter("serviceName");
-        if (StringUtils.isEmpty(serviceName)) {
-            throw new RuntimeException("serviceName can not empty");
-        }
+//        if (StringUtils.isEmpty(serviceName)) {
+//            throw new RuntimeException("serviceName can not empty");
+//        }
         return serviceName;
     }
 }
