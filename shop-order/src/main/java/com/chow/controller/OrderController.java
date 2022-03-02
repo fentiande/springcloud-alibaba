@@ -1,5 +1,6 @@
 package com.chow.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.chow.domain.Order;
 import com.chow.domain.Product;
 import com.chow.service.OrderService;
@@ -49,15 +50,24 @@ public class OrderController {
         return order;
     }
 
+    int i = 0;
     @GetMapping("/order/message1")
     public String message1() {
-        orderService.message();
+        i++;
+        if (i % 3 == 0) {
+//            throw new RuntimeException();
+        }
         return "message1";
     }
 
     @GetMapping("/order/message2")
     public String message2() {
-        orderService.message();
-        return "message2";
+        return orderService.message("xx");
+    }
+
+    @GetMapping("/order/message3")
+    @SentinelResource("message3")
+    public String message3(String name, Integer age) {
+        return "message3"+name+age;
     }
 }

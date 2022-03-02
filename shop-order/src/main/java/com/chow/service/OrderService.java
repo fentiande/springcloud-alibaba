@@ -6,5 +6,5 @@ public interface OrderService {
 
     public void save(Order order);
 
-    public void message();
+    public String message(String name);
 }
