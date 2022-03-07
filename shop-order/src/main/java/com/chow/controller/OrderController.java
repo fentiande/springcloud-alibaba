@@ -7,14 +7,9 @@ import com.chow.service.OrderService;
 import com.chow.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
 
 @RestController
 @Slf4j
@@ -30,12 +25,19 @@ public class OrderController {
     public Order order(@PathVariable("pid") Integer pid) {
         Product product = productService.findById(pid);
 
-        try {
+        if (product.getPid() == -200) {
+            Order order = new Order();
+            order.setOid(-400L);
+            order.setPname("下单失败");
+            return order;
+        }
+
+        /*try {
             Thread.sleep(2000l);
         } catch (InterruptedException e) {
             log.error("休息中，报错了");
         }
-        log.info("休息两秒");
+        log.info("休息两秒");*/
 
         Order order = new Order();
         order.setUid(1);
