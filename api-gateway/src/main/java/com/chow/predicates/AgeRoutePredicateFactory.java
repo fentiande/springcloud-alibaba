@@ -27,20 +27,21 @@ public class AgeRoutePredicateFactory extends AbstractRoutePredicateFactory<AgeR
     }
 
     public Predicate<ServerWebExchange> apply(AgeRoutePredicateFactory.Config config) {
-        return (exchange) -> {
-
-            String ageStr = exchange.getRequest().getQueryParams().getFirst("age");
-            if (StringUtils.isBlank(ageStr)) {
+        return new Predicate<ServerWebExchange>() {
+            @Override
+            public boolean test(ServerWebExchange exchange) {
+                String ageStr = exchange.getRequest().getQueryParams().getFirst("age");
+                if (StringUtils.isBlank(ageStr)) {
 //                return false;
-                return true;
-            }
+                    return true;
+                }
 
-            Integer age = Integer.parseInt(ageStr);
-            if (age >= config.getMinAge() && age <= config.getMaxAge()) {
-                return true;
+                Integer age = Integer.parseInt(ageStr);
+                if (age >= config.getMinAge() && age <= config.getMaxAge()) {
+                    return true;
+                }
+                return false;
             }
-            return false;
-
         };
     }
 

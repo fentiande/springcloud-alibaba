@@ -23,4 +23,6 @@ spring:
             - Age=18,60
           filters: # 过滤器,请求在传递过程中可以通过过滤器对其进行一定的修改
             - StripPrefix=1 # 转发之前去掉1层路径
+            - SetStatus=250
+            - Log=true,false
 
