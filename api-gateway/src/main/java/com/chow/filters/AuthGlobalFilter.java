@@ -19,7 +19,7 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
         String token = exchange.getRequest().getQueryParams().getFirst("token");
 //        if (!StringUtils.equals("admin", token)) {
         if (StringUtils.equals("admin", token)) {
-            log.error("认证失败");
+            log.error("认证失败。。");
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
             return exchange.getResponse().setComplete();
         }
