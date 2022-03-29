@@ -3,6 +3,12 @@ server:
   tomcat:
     max-threads: 10
 spring:
+  zipkin:
+    discovery-client-enabled: false #让nacos把它当成一个URL，而不要当做服务名
+    base-url: http://127.0.0.1:9411/ #zipkin server的请求地址
+  sleuth:
+    sampler:
+      probability: 1.0 #采样的百分比
   application:
     name: service-order
   datasource:
