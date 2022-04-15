@@ -5,7 +5,9 @@ import com.chow.domain.Order;
 import com.chow.domain.Product;
 import com.chow.service.OrderService;
 import com.chow.service.ProductService;
+import io.netty.channel.DefaultChannelId;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +22,9 @@ public class OrderController {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private RocketMQTemplate rocketMQTemplate;
 
     @GetMapping("/order/prod/{pid}")
     public Order order(@PathVariable("pid") Integer pid) {
@@ -48,6 +53,10 @@ public class OrderController {
         order.setNumber(1);
 
 //        orderService.save(order);
+
+        // 向mq投递消息
+        DefaultChannelId.newInstance();
+        rocketMQTemplate.convertAndSend("order-topic", order);
 
         return order;
     }

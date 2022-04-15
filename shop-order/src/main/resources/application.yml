@@ -37,3 +37,7 @@ service-product: # 调用的提供者的名称
 feign:
   sentinel:
     enabled: true
+rocketmq:
+  name-server: 172.16.2.120:9876 #rocketMQ服务的地址
+  producer:
+    group: shop-order # 生产者组12345
