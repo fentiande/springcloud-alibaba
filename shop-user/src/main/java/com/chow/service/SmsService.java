@@ -3,13 +3,20 @@ package com.chow.service;
 import com.chow.domain.Order;
 import io.netty.channel.DefaultChannelId;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.rocketmq.spring.annotation.ConsumeMode;
+import org.apache.rocketmq.spring.annotation.MessageModel;
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-@RocketMQMessageListener(consumerGroup = "shop-user", topic = "order-topic")
+@RocketMQMessageListener(
+        consumerGroup = "shop-user",
+        topic = "order-topic",
+        consumeMode = ConsumeMode.ORDERLY,
+        messageModel = MessageModel.CLUSTERING
+)
 @org.springframework.core.annotation.Order(value = 2000)
 public class SmsService implements RocketMQListener<Order> {
 

@@ -3,8 +3,8 @@ package com.chow.controller;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.chow.domain.Order;
 import com.chow.domain.Product;
-import com.chow.service.OrderService;
 import com.chow.service.ProductService;
+import com.chow.service.impl.OrderServiceImpl;
 import io.netty.channel.DefaultChannelId;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @Autowired
-    private OrderService orderService;
+    private OrderServiceImpl orderService;
 
     @Autowired
     private ProductService productService;
@@ -80,5 +80,29 @@ public class OrderController {
     @SentinelResource("message3")
     public String message3(String name, Integer age) {
         return "message3"+name+age;
+    }
+
+    @GetMapping("/order1/prod/{pid}")
+    public Order order1(@PathVariable("pid") Integer pid) {
+        Product product = productService.findById(pid);
+
+        if (product.getPid() == -200) {
+            Order order = new Order();
+            order.setOid(-400L);
+            order.setPname("下单失败");
+            return order;
+        }
+
+        Order order = new Order();
+        order.setUid(1);
+        order.setUsername("测试用户");
+        order.setPid(product.getPid());
+        order.setPname(product.getPname());
+        order.setPprice(product.getPprice());
+        order.setNumber(1);
+
+        orderService.createOrderBefore(order);
+
+        return order;
     }
 }
