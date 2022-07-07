@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: service-product
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        shared-configs:
+          - data-id: all-service.yaml
+            refresh: true
+#        group: #对应一个大项目，如电商项目
+#        namespace: #对应一个环境，如测试环境
+  profiles:
+    active: test
