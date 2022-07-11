@@ -13,6 +13,7 @@ import com.chow.service.OrderService;
 import com.chow.service.ProductService;
 import io.netty.channel.DefaultChannelId;
 import io.seata.spring.annotation.GlobalTransactional;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.support.MessageBuilder;
@@ -33,7 +34,7 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private TxLogDao txLogDao;
 
-    @Autowired
+    @DubboReference
     private ProductService productService;
 
     @Override
@@ -77,7 +78,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @GlobalTransactional(rollbackFor = Exception.class)
     public Order createOrder(Integer pid) {
-        Product product = productService.findById(pid);
+        Product product = productService.findByPid(pid);
 
         if (product.getPid() == -200) {
             Order order = new Order();
@@ -106,8 +107,8 @@ public class OrderServiceImpl implements OrderService {
         productService.reduceInventory(pid, order.getNumber());
 
         // 向mq投递消息
-        DefaultChannelId.newInstance();
-        rocketMQTemplate.convertAndSend("order-topic", order);
+//        DefaultChannelId.newInstance();
+//        rocketMQTemplate.convertAndSend("order-topic", order);
 
         return order;
     }

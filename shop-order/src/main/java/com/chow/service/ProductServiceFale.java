@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 //        fallback = ProductServiceFallback.class,
 //        fallbackFactory = ProductServiceFallbackFactory.class
 )
-public interface ProductService {
+public interface ProductServiceFale {
 
     @GetMapping("/product/{pid}")
     public Product findById(@PathVariable("pid") Integer pid);

@@ -40,4 +40,13 @@ feign:
 rocketmq:
   name-server: 172.16.2.120:9876 #rocketMQ服务的地址
   producer:
-    group: shop-order # 生产者组12345
+    group: shop-order # 生产者组、
+dubbo:
+  protocols:
+    dubbo:
+      name: dubbo # 服务协议
+      port: -1 # 服务端口
+  registry:
+    address: spring-cloud://localhost # 注册中心
+  cloud:
+    subscribed-services: service-product # 订阅的提供者名称

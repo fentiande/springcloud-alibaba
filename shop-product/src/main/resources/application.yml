@@ -27,3 +27,12 @@ spring:
 config:
   appName: product1
   env: dev
+dubbo:
+  scan:
+    base-packages: com.chow.service.impl # 开启包扫描
+  protocols:
+    dubbo:
+      name: dubbo # 服务协议
+      port: -1 # 服务端口
+  registry:
+    address: spring-cloud://localhost # 注册中心

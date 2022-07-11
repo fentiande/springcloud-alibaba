@@ -5,12 +5,12 @@ import com.chow.domain.Product;
 import com.chow.service.OrderService;
 import com.chow.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class OrderControllerTest {
     @Autowired
     private OrderService orderService;
 
-    @Autowired
+    @DubboReference
     private ProductService productService;
 
     @Autowired
@@ -71,7 +71,7 @@ public class OrderControllerTest {
 
     @GetMapping("/order/prod/{pid}")
     public Order order(@PathVariable("pid") Integer pid) {
-        Product product = productService.findById(pid);
+        Product product = productService.findByPid(pid);
 
         Order order = new Order();
         order.setUid(1);

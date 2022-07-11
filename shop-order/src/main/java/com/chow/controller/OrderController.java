@@ -6,6 +6,7 @@ import com.chow.domain.Product;
 import com.chow.service.ProductService;
 import com.chow.service.impl.OrderServiceImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,7 @@ public class OrderController {
     @Autowired
     private OrderServiceImpl orderService;
 
-    @Autowired
+    @DubboReference
     private ProductService productService;
 
     @Autowired
@@ -84,7 +85,7 @@ public class OrderController {
 
     @GetMapping("/order1/prod/{pid}")
     public Order order1(@PathVariable("pid") Integer pid) {
-        Product product = productService.findById(pid);
+        Product product = productService.findByPid(pid);
 
         if (product.getPid() == -200) {
             Order order = new Order();

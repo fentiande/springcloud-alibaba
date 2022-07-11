@@ -2,7 +2,7 @@ package com.chow.service;
 
 import com.chow.domain.Product;
 
-public interface ProductService {
+public interface ProductServiceFale {
 
     public Product findByPid(Integer pid);
 
