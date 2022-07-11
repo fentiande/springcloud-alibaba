@@ -1,10 +1,6 @@
 package com.chow.service.fallback;
 
-import com.chow.domain.Product;
-import com.chow.service.ProductService;
-import org.springframework.stereotype.Service;
-
-@Service
+/*@Service
 public class ProductServiceFallback implements ProductService {
 
     @Override
@@ -13,4 +9,4 @@ public class ProductServiceFallback implements ProductService {
         product.setPid(-200);
         return product;
     }
-}
+}*/

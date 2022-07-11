@@ -1,6 +1,6 @@
 spring:
   application:
-    name: service-product
+    name: service-order
   cloud:
     nacos:
       config:
@@ -18,13 +18,13 @@ spring:
 seata:
   service:
     vgroup-mapping:
-      service-product: default
+      service-order: default
     grouplist:
       default: 127.0.0.1:10000
   enabled: true
-  application-id: service-product
+  application-id: service-order
   # Seata 事务组编号，此处需于 seata 相同
-  tx-service-group: service-product
+  tx-service-group: service-order
   config:
     # support: nacos, consul, apollo, zk, etcd3
     type: nacos

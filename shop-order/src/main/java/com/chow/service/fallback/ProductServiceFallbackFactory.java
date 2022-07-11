@@ -1,12 +1,6 @@
 package com.chow.service.fallback;
 
-import com.chow.domain.Product;
-import com.chow.service.ProductService;
-import feign.hystrix.FallbackFactory;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-
-@Slf4j
+/*@Slf4j
 @Service
 public class ProductServiceFallbackFactory implements FallbackFactory<ProductService> {
 
@@ -22,4 +16,4 @@ public class ProductServiceFallbackFactory implements FallbackFactory<ProductSer
             }
         };
     }
-}
+}*/
